@@ -16,14 +16,14 @@ const protectedRoutes = {
 
 const style = {
   theme: "dark", // dark | light
-  neutral: "gray", // sand | gray | slate
+  neutral: "slate", // sand | gray | slate
   brand: "aqua", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
   accent: "orange", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
   border: "playful", // rounded | playful | conservative
   surface: "translucent", // filled | translucent
-  transition: "all", // all | micro | macro
+  transition: "all", // all | micro | macro,
 };
 
 const effects = {
@@ -63,8 +63,8 @@ const effects = {
 };
 
 const display = {
-  location: true,
-  time: true,
+  location: false,
+  time: false,
 };
 
 const mailchimp = {
