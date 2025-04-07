@@ -1,15 +1,15 @@
 import { InlineCode } from "@/once-ui/components";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Rajat",
+  lastName: "Asthana",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  role: "Full Stack Developer",
+  avatar: "/images/profile.png",
+  location: "Asia/Kolkata",
+  languages: ["English"],
 };
 
 const newsletter = {
@@ -17,34 +17,32 @@ const newsletter = {
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
+      I sometimes write about my experiences and thoughts on the web. You can
+      subscribe to my newsletter to get notified when I publish something new.
     </>
   ),
 };
 
 const social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/RyderAsKing",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/rajatasthana12/",
   },
   {
-    name: "X",
+    name: "",
     icon: "x",
-    link: "",
+    link: "https://x.com/Rajat37517661",
   },
   {
     name: "Email",
     icon: "email",
-    link: "mailto:example@gmail.com",
+    link: "mailto:contact@ryder.pro",
   },
 ];
 
@@ -52,11 +50,13 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Design engineer and builder</>,
+  headline: <>Full Stack Developer </>,
   subline: (
     <>
-      I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I craft scalable web applications using Laravel and modern JS frameworks.
+      With over <InlineCode>5 years of experience</InlineCode>, I've helped
+      startups ship products fast and efficiently. Let's build something
+      impactful.
     </>
   ),
 };
@@ -81,53 +81,84 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        I'm a Full Stack Developer with 5+ years of experience building web
+        applications for startups and businesses. My core stack includes
+        Laravel, Inertia.js (React/Vue), MongoDB, and modern UI libraries like
+        TailwindCSS and shadcn/ui.
+        <br />
+        <br />
+        I've led development teams, co-founded tech companies, and contributed
+        to open-source projects used by hundreds of developers. Whether you're
+        looking to launch an MVP, automate your business processes, or scale a
+        SaaS product—I can help you get there.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Web Comet Systems & Spectivis",
+        timeframe: "2023 - Present",
+        role: "Full Stack Developer",
         achievements: [
-          <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
-          </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
-          </>,
+          <>Part-time development and consulting for multiple projects.</>,
+          <>Developed a web application for a easy on page SEO optimization.</>,
+          <>Made a web application for 3D printing using Laravel and React.</>,
         ],
         images: [
-          // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
+            src: "/images/projects/spectivis/spectivis.png",
+            alt: "Project image",
+            width: 32,
+            height: 18,
           },
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Xentain Solutions",
+        timeframe: "2023 - 2025",
+        role: "Co-Founder & COO",
         achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
+          <>Co-founded a hosting platform serving 1200+ global clients.</>,
+          <>Market positioning and business development.</>,
+        ],
+        images: [
+          {
+            src: "/images/projects/xentain/xentain.png",
+            alt: "Project image",
+            width: 32,
+            height: 18,
+          },
+        ],
+      },
+
+      {
+        company: "Next Array",
+        timeframe: "2022",
+        role: "Full Stack Developer",
+        achievements: [<>Part-Time Full Stack Developer role</>],
+        images: [],
+      },
+      {
+        company: "VelocityNode (Ghosty)",
+        timeframe: "2020 - 2022",
+        role: "Founder & CEO",
+        achievements: [
+          <>Launched a game server hosting company</>,
+          <>Successfully served 700+ clients and 2000+ servers</>,
+        ],
+        images: [],
+      },
+      {
+        company: "MysticNodes",
+        timeframe: "2019 - 2020",
+        role: "CTO",
+        achievements: [
+          <>Built the dashboard that scaled to over 4000 active users</>,
+          <>Created a rest API for the dashboard using PHP</>,
+          <>Marketing and business development for the company</>,
         ],
         images: [],
       },
@@ -138,50 +169,91 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Birla Institute of Technology And Science",
+        description: (
+          <>
+            Studied computer science and engineering. It is an undergraduate
+            program.
+          </>
+        ),
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Technical skills",
+
     skills: [
       {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-        // optional: leave the array empty if you don't want to display images
+        title: "Primary Stack",
+        description: (
+          <>
+            Specialized in{" "}
+            <InlineCode> Laravel, Inertia.js (React/Vue), MongoDB</InlineCode>,
+            and modern UI libraries like{" "}
+            <InlineCode>TailwindCSS and shadcn/ui</InlineCode> for building
+            full-stack web applications.
+          </>
+        ),
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            src: "/images/tech/primary-stack.png",
+            alt: "Primary tech stack visualization",
+            width: 26,
+            height: 5.2,
           },
         ],
       },
       {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        title: "Frontend Development",
+        description: (
+          <>
+            Proficient in modern frontend technologies including JavaScript,
+            TypeScript, React, Vue.js, Next.js, TailwindCSS, Bootstrap, Vite,
+            Electron, Webpack, and Sass.
+          </>
+        ),
+        images: [],
+      },
+      {
+        title: "Backend Development",
+        description: (
+          <>
+            Expert in server-side development with Laravel, PHP, Node.js,
+            Express, Python, FastAPI, and Django.
+          </>
+        ),
+        images: [],
+      },
+      {
+        title: "AI & Machine Learning",
+        description: (
+          <>
+            Experience with AI technologies including OpenAI, CrewAI, LangChain,
+            TensorFlow, PyTorch, and Scikit Learn.
+          </>
+        ),
+        images: [],
+      },
+      {
+        title: "Databases & DevOps",
+        description: (
+          <>
+            Skilled in database management and DevOps using MongoDB, MySQL,
+            PostgreSQL, Redis, Docker, Nginx, and AWS.
+          </>
+        ),
+        images: [],
+      },
+      {
+        title: "Development Tools",
+        description: (
+          <>
+            Proficient with Git, GitHub Actions, VS Code, Postman, Figma, and
+            Linux for efficient development workflows.
+          </>
+        ),
+        images: [],
       },
     ],
   },
