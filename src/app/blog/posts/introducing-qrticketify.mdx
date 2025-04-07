@@ -1,0 +1,111 @@
+---
+title: "Introducing QRTicketify: A Modern Event Ticketing System"
+publishedAt: "2024-08-20"
+image: "https://raw.githubusercontent.com/RyderAsKing/QRTicketify/refs/heads/main/preview/Merged.gif"
+summary: "Sharing my journey of creating QRTicketify, a comprehensive open-source event management and ticketing platform built with Laravel and React that simplifies event ticketing through QR codes."
+tag: "Development"
+---
+
+<div align="center">
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/RyderAsKing/QRTicketify/refs/heads/main/logo/White.png"
+    />
+    <img
+      alt="QR Ticketify logo"
+      src="https://raw.githubusercontent.com/RyderAsKing/QRTicketify/refs/heads/main/logo/White.png"
+      width="40%"
+    />
+  </picture>
+</div>
+
+Today, I'm excited to share QRTicketify - a comprehensive, free, and open-source event management and ticketing platform built using Laravel and React. This project aims to simplify event ticketing through QR code technology while providing powerful management tools for event organizers.
+
+## The Genesis of QRTicketify
+
+The idea for QRTicketify emerged from seeing the complexities and costs associated with existing event ticketing solutions. I wanted to create a platform that would be:
+
+- Free and open-source
+- Easy to set up and use
+- Secure and reliable
+- Feature-rich yet simple
+
+## Core Features
+
+QRTicketify comes packed with essential features for event management:
+
+- **QR Code Generation**: Unique QR codes for each ticket sent via email
+- **POS Integration**: Seamless ticket scanning and verification at entry points
+- **Email Notifications**: Automated ticket delivery and event updates
+- **Multiple Event Management**: Create and manage multiple events simultaneously
+- **Role-based Access Control**: Flexible user permissions system
+- **Real-time Validation**: Instant ticket verification
+
+## Technical Architecture
+
+### Modern Tech Stack
+
+- Laravel 11 for robust backend operations
+- React for dynamic frontend interfaces
+- MySQL/MariaDB for data storage
+- Redis for queue management
+- Supervisor for worker processes
+- NGINX web server
+
+### Developer Experience
+
+The platform is built with developer productivity in mind:
+
+- Clean, modular codebase
+- Comprehensive documentation
+- Easy deployment process
+- Built-in debugging tools
+- Queue system for background tasks
+
+Here's a glimpse of how QRTicketify handles ticket generation:
+
+<CodeBlock
+  className="my-8"
+  compact
+  codeInstances={[
+    {
+      code: "// Generate unique QR code for ticket\npublic function generateTicket($event, $user)\n{\n    $ticket = Ticket::create([\n        'event_id' => $event->id,\n        'user_id' => $user->id,\n        'code' => Str::uuid(),\n    ]);\n\n    // Queue email with QR code\n    Mail::to($user->email)->queue(new TicketGenerated($ticket));\n\n    return $ticket;\n}",
+      label: "Ticket Generation",
+      language: "php",
+    },
+  ]}
+  copyButton
+/>
+
+## Getting Started
+
+QRTicketify is designed to be easily deployable. Here's a quick setup guide:
+
+<CodeBlock
+  className="my-8"
+  compact
+  codeInstances={[
+    {
+      code: "git clone https://github.com/RyderAsKing/QRTicketify.git\ncd QRTicketify\n\ncomposer install --no-dev --optimize-autoloader\nnpm install\n\ncp .env.example .env\nphp artisan key:generate\nphp artisan migrate --seed",
+      label: "Setup Commands",
+      language: "bash",
+    },
+  ]}
+  copyButton
+/>
+
+## Future Development
+
+QRTicketify is actively maintained with planned enhancements including:
+
+- Advanced analytics dashboard
+- Multiple payment gateway integrations
+- Custom ticket design templates
+- API for third-party integrations
+- Mobile apps for ticket scanning
+- Multi-language support
+
+I hope QRTicketify helps event organizers streamline their ticketing operations while providing a great experience for attendees. The project is open-source and contributions are welcome!
+
+[View Project on GitHub](https://github.com/RyderAsKing/QRTicketify)

@@ -1,0 +1,175 @@
+---
+title: "Introducing NertiaKit: A Modern Laravel SaaS Starter Kit"
+publishedAt: "2025-02-22"
+image: "/images/projects/nertiakit/nertiakit_home.png"
+summary: "Sharing my journey of creating NertiaKit, a modern starter kit that combines Laravel, Inertia.js, and React to accelerate SaaS development."
+tag: "Development"
+---
+
+<div align="center">
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="https://raw.githubusercontent.com/RyderAsKing/NertiaKit/master/public/assets/nertiakit_full.png"
+    />
+    <img
+      alt="QR Ticketify logo"
+      src="https://raw.githubusercontent.com/RyderAsKing/NertiaKit/master/public/assets/nertiakit_full.png"
+      width="40%"
+    />
+  </picture>
+</div>
+
+Today, I'm excited to share a project that I've been working on — NertiaKit, a modern starter kit designed to streamline the development of SaaS applications using Laravel and Inertia.js. This project emerged from my experiences building multiple SaaS applications and recognizing common patterns and challenges that developers face.
+
+## The Genesis of NertiaKit
+
+Every SaaS project starts with the same foundational requirements: authentication, user management, role-based access control, and a solid frontend architecture. I found myself repeatedly setting up these components, and I thought, "There must be a better way." That's how NertiaKit was born — a solution to help developers jump straight into building their unique features instead of spending weeks on boilerplate code.
+
+## What Makes NertiaKit Different
+
+While there are many starter kits available, NertiaKit focuses on providing a clean, minimalistic foundation with modern tools and best practices. Here's what makes it special:
+
+### Modern Tech Stack
+
+- Laravel 11 for a robust backend
+- Inertia.js + React for seamless SPA experience
+- TypeScript for better type safety
+- ShadcnUI for beautiful, accessible components
+- TailwindCSS for responsive styling
+
+### Developer Experience
+
+The real magic of NertiaKit lies in its developer experience. I've included features that I wish I had when starting my SaaS projects:
+
+- Pre-configured layouts for authenticated and guest views
+- Type-safe data sharing between Laravel and React
+- Role-based navigation system
+- Organized route and controller structure
+- Comprehensive type definitions
+- Hot module replacement in development
+
+Here's a quick look at how NertiaKit handles shared data between backend and frontend:
+
+<CodeBlock
+  className="my-8"
+  compact
+  codeInstances={[
+    {
+      code: "const { auth, app } = usePage<PageProps>().props;\n\nreturn (\n    <div>\n        <h1>{app.name}</h1>\n        {auth.user && <p>Welcome, {auth.user.name}</p>}\n    </div>\n);",
+      label: "React Component",
+      language: "tsx",
+    },
+  ]}
+  copyButton
+/>
+
+The type system ensures that you'll catch errors early:
+
+<CodeBlock
+  className="my-8"
+  compact
+  codeInstances={[
+    {
+      code: "export type PageProps<T = {}> = T & {\n    auth: { user: User };\n    app: {\n        name: string;\n        tagline: string;\n    };\n    flash: {\n        success?: string;\n        error?: string;\n    };\n};",
+      label: "TypeScript Types",
+      language: "typescript",
+    },
+  ]}
+  copyButton
+/>
+
+### Role-Based Access Control
+
+NertiaKit implements role-based access control using Spatie's Laravel Permission package. This provides a flexible way to manage user permissions:
+
+<CodeBlock
+  className="my-8"
+  compact
+  codeInstances={[
+    {
+      code: "// database/seeders/RoleSeeder.php\npublic function run(): void\n{\n    Role::create(['name' => 'admin']);\n    Role::create(['name' => 'user']);\n}\n\n// Assigning roles on registration\n$user->assignRole('user');",
+      label: "Role Management",
+      language: "php",
+    },
+  ]}
+  copyButton
+/>
+
+### Navigation System
+
+The navigation system is built with role-based access in mind:
+
+<CodeBlock
+  className="my-8"
+  compact
+  codeInstances={[
+    {
+      code: "const navigation = [\n    {\n        title: 'Dashboard',\n        url: route('dashboard'),\n        icon: LayoutDashboard,\n        isActive: route().current('dashboard')\n    },\n    {\n        title: 'Users',\n        url: route('admin.users.index'),\n        icon: Users,\n        isActive: route().current('admin.users.*'),\n        viewBy: 'admin'\n    }\n];",
+      label: "Navigation Config",
+      language: "typescript",
+    },
+  ]}
+  copyButton
+/>
+
+### Route Organization
+
+Routes are organized by access level for better maintainability:
+
+<CodeBlock
+  className="my-8"
+  compact
+  codeInstances={[
+    {
+      code: "// routes/admin.php\nRoute::middleware(['auth', 'role:admin'])\n    ->prefix('admin')\n    ->name('admin.')\n    ->group(function () {\n        Route::resource('users', UserController::class);\n    });",
+      label: "Route Structure",
+      language: "php",
+    },
+  ]}
+  copyButton
+/>
+
+## Getting Started
+
+Using NertiaKit is straightforward. You can either use it as a template or fork and customize:
+
+### Option 1: Use as Template
+
+1. Click "Use this template" on GitHub
+2. Create your repository
+3. Clone and setup:
+
+<CodeBlock
+  className="my-8"
+  compact
+  codeInstances={[
+    {
+      code: "git clone https://github.com/your-username/your-project.git\ncd your-project\n\ncomposer install\nnpm install\nnpm run dev\n\ncp .env.example .env\nphp artisan key:generate\nphp artisan migrate --seed",
+      label: "Setup Commands",
+      language: "bash",
+    },
+  ]}
+  copyButton
+/>
+
+### Option 2: Fork and Customize
+
+Fork the repository and follow the same setup steps. The default admin credentials are:
+
+- Email: admin@example.com
+- Password: password
+
+## Future Development
+
+NertiaKit is actively maintained and new features are being added regularly. Planned enhancements include:
+
+- API authentication setup
+- More UI components and layouts
+- Enhanced testing setup
+- Additional role presets
+- Improved documentation
+
+I hope NertiaKit helps you build your next SaaS project faster and with better practices. Feel free to contribute or raise issues on GitHub!
+
+[View Project on GitHub](https://github.com/RyderAsKing/NertiaKit)
