@@ -279,8 +279,13 @@ const gallery = {
   label: "Gallery",
   title: "My photo gallery",
   description: `A photo collection by ${person.name}`,
-  // Images from https://pexels.com
-  images: [],
+  images: [
+    {
+      src: "/images/projects/spectivis/spectivis.png",
+      alt: "Spectivis",
+    },
+    // ... more images
+  ],
 };
 
 export { person, social, newsletter, home, about, blog, work, gallery };
