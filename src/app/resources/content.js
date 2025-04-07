@@ -66,7 +66,7 @@ const about = {
   title: "About me",
   description: `Meet ${person.name}, ${person.role} from ${person.location}`,
   tableOfContent: {
-    display: true,
+    display: false,
     subItems: false,
   },
   avatar: {
