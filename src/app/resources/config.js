@@ -46,19 +46,19 @@ const effects = {
   },
   dots: {
     display: true,
-    size: 2,
+    size: 20,
     color: "brand-on-background-weak",
-    opacity: 20,
+    opacity: 50,
   },
   lines: {
-    display: false,
+    display: true,
     color: "neutral-alpha-weak",
     opacity: 100,
   },
   grid: {
     display: false,
     color: "neutral-alpha-weak",
-    opacity: 100,
+    opacity: 50,
   },
 };
 
