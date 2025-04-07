@@ -111,8 +111,8 @@ const about = {
           {
             src: "/images/projects/spectivis/spectivis.png",
             alt: "Project image",
-            width: 32,
-            height: 18,
+            width: 22,
+            height: 12.4,
           },
         ],
       },
@@ -128,8 +128,8 @@ const about = {
           {
             src: "/images/projects/xentain/xentain.png",
             alt: "Project image",
-            width: 32,
-            height: 18,
+            width: 22,
+            height: 12.4,
           },
         ],
       },
