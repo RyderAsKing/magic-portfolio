@@ -23,21 +23,26 @@ export const Footer = () => {
         horizontal="space-between"
         vertical="center"
       >
-        <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
-          <br />
-          <Text onBackground="neutral-weak">
-            Check out{" "}
-            <SmartLink
-              style={{ marginLeft: "-0.125rem", marginRight: "-0.125rem" }}
-              href="https://once-ui.com/"
-            >
-              Once UI
-            </SmartLink>{" "}
-            open-source design system
+        <Flex gap="8" vertical="center">
+          <Text variant="body-default-s" onBackground="neutral-strong">
+            <Text onBackground="neutral-weak">© {currentYear} /</Text>
+            <Text paddingX="4">{person.name}</Text>
           </Text>
-        </Text>
+          <div title="Check out Once UI open-source design system">
+            <a
+              href="https://once-ui.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "var(--brand-on-background-weak)",
+                cursor: "pointer",
+                textDecoration: "none",
+              }}
+            >
+              <i className="ri-code-line" style={{ fontSize: "14px" }} />
+            </a>
+          </div>
+        </Flex>
         <Flex gap="16">
           {social.map(
             (item) =>

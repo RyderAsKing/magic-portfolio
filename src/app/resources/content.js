@@ -199,8 +199,8 @@ const about = {
           {
             src: "/images/tech/primary-stack.png",
             alt: "Primary tech stack visualization",
-            width: 26,
-            height: 5.2,
+            width: 22,
+            height: 4.4,
           },
         ],
       },
