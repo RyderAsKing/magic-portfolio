@@ -43,3 +43,23 @@ A bootloader is a small, crucial program that executes when a device starts, res
 A kernel is the central, core component of a computer's operating system (OS) that acts as a bridge between software and hardware, managing system resources like memory and CPU time, and facilitating communication between them.
 
 An initramfs (initial RAM file system) is a temporary root file system loaded into memory by the bootloader, containing essential drivers and tools needed to mount the actual root file system and continue the boot process.
+
+## Getting started for dual boot
+
+1. Disable secure boot
+2. Disable bitlocker encryption (windows)
+3. Make sure to have unallocated space to install ubuntu into (you can use a new disk, format an existing partition or shrink an existing partition)
+4. Burn the installation ISO into a USB stick (preferred)
+5. Boot into the installation USB stick
+6. Go through the installation steps till you are asked about the partition/disk, select manual
+7. Create a root partition EXT4 (/, this is where your OS and its files stays)
+8. Create an EFI System Partition and mount it at (/boot), this is where the bootloader files for your system stays.
+9. Follow the installation steps and reboot, you should be able to select your linux installating along with your windows using UEFI boot menu
+
+## rEFInd - A boot manager
+
+rEFInd is a boot manager for UEFI and EFI-based machines that automatically detects and presents a graphical menu of installed operating systems and UEFI applications, allowing users to easily select what to boot.
+
+A boot manager provides a menu to let you choose which operating system to run, while a boot loader is the underlying program that actually loads the selected operating system's kernel into memory.
+
+For example, rEFInd is a popular boot manager that can detect and display various operating systems, which then calls a boot loader like GRUB to handle the technical process of loading Linux.
