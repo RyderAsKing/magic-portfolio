@@ -93,8 +93,13 @@ export const ContactForm = ({ newsletter }: { newsletter: ContactProps }) => {
     }
   };
 
-  const debouncedHandleChange = debounce(
-    (field: keyof FormData, value: string) => handleChange(field, value),
+  const debouncedValidateField = debounce(
+    (field: keyof FormData, value: string) => {
+      if (touched[field]) {
+        const error = validateField(field, value);
+        setErrors((prev) => ({ ...prev, [field]: error }));
+      }
+    },
     300
   );
 
@@ -301,6 +306,7 @@ export const ContactForm = ({ newsletter }: { newsletter: ContactProps }) => {
       <form
         style={{
           width: "100%",
+          maxWidth: "800px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -308,7 +314,7 @@ export const ContactForm = ({ newsletter }: { newsletter: ContactProps }) => {
         }}
         onSubmit={handleSubmit}
       >
-        <Flex fillWidth maxWidth={24} gap="8" mobileDirection="column">
+        <Flex fillWidth gap="8" mobileDirection="column">
           <Flex flex={1}>
             <Input
               style={{ width: "100%" }}
@@ -322,11 +328,7 @@ export const ContactForm = ({ newsletter }: { newsletter: ContactProps }) => {
               onChange={(e) => {
                 const value = e.target.value;
                 setFormData((prev) => ({ ...prev, name: value }));
-                if (errors.name) {
-                  handleChange("name", value);
-                } else {
-                  debouncedHandleChange("name", value);
-                }
+                debouncedValidateField("name", value);
               }}
               onBlur={() => handleBlur("name")}
               errorMessage={touched.name ? errors.name : ""}
@@ -346,11 +348,7 @@ export const ContactForm = ({ newsletter }: { newsletter: ContactProps }) => {
               onChange={(e) => {
                 const value = e.target.value;
                 setFormData((prev) => ({ ...prev, email: value }));
-                if (errors.email) {
-                  handleChange("email", value);
-                } else {
-                  debouncedHandleChange("email", value);
-                }
+                debouncedValidateField("email", value);
               }}
               onBlur={() => handleBlur("email")}
               errorMessage={touched.email ? errors.email : ""}
@@ -358,7 +356,7 @@ export const ContactForm = ({ newsletter }: { newsletter: ContactProps }) => {
           </Flex>
         </Flex>
 
-        <Flex fillWidth maxWidth={24}>
+        <Flex fillWidth>
           <Input
             style={{ width: "100%" }}
             labelAsPlaceholder
@@ -371,20 +369,16 @@ export const ContactForm = ({ newsletter }: { newsletter: ContactProps }) => {
             onChange={(e) => {
               const value = e.target.value;
               setFormData((prev) => ({ ...prev, subject: value }));
-              if (errors.subject) {
-                handleChange("subject", value);
-              } else {
-                debouncedHandleChange("subject", value);
-              }
+              debouncedValidateField("subject", value);
             }}
             onBlur={() => handleBlur("subject")}
             errorMessage={touched.subject ? errors.subject : ""}
           />
         </Flex>
 
-        <Flex fillWidth maxWidth={24}>
+        <Flex fillWidth>
           <Textarea
-            style={{ width: "100%" }}
+            style={{ width: "100%", minHeight: "80px" }}
             labelAsPlaceholder
             id="contact-message"
             name="message"
@@ -395,18 +389,14 @@ export const ContactForm = ({ newsletter }: { newsletter: ContactProps }) => {
             onChange={(e) => {
               const value = e.target.value;
               setFormData((prev) => ({ ...prev, message: value }));
-              if (errors.message) {
-                handleChange("message", value);
-              } else {
-                debouncedHandleChange("message", value);
-              }
+              debouncedValidateField("message", value);
             }}
             onBlur={() => handleBlur("message")}
             errorMessage={touched.message ? errors.message : ""}
           />
         </Flex>
 
-        <Flex fillWidth maxWidth={24} horizontal="center" paddingTop="m">
+        <Flex fillWidth horizontal="center" paddingTop="m">
           <Button
             type="submit"
             size="m"
