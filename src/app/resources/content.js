@@ -99,23 +99,42 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "Web Comet Systems & Spectivis",
-        timeframe: "2023 - Present",
-        role: "Full Stack Developer",
+        company: "Soraxus Networks Inc.",
+        timeframe: "2024 - Present",
+        role: "COO",
         achievements: [
-          <>Part-time development and consulting for multiple projects.</>,
-          <>Developed a web application for a easy on page SEO optimization.</>,
-          <>Made a web application for 3D printing using Laravel and React.</>,
+          <>Enterprise Infrastructure, Simplified.</>,
+          <>
+            High-performance bare metal and colocation services backed by
+            enterprise-grade DDoS protection and 24/7 expert support.
+          </>,
         ],
         images: [
           {
-            src: "/images/projects/spectivis/spectivis.png",
-            alt: "Project image",
+            src: "/images/projects/soraxus.png",
+            alt: "Soraxus",
             width: 22,
             height: 12.4,
           },
         ],
       },
+      {
+        company: "Web Comet Systems",
+        timeframe: "2023 - Present",
+        role: "CTO",
+        achievements: [
+          <>
+            Oversee development and architectural decisions for a diverse
+            portfolio of projects.
+          </>,
+          <>
+            Infrastructure & DevOps Orchestrated cloud deployments and managed
+            scalable server environments
+          </>,
+        ],
+        images: [],
+      },
+
       {
         company: "Xentain Solutions",
         timeframe: "2023 - 2025",
@@ -132,14 +151,6 @@ const about = {
             height: 12.4,
           },
         ],
-      },
-
-      {
-        company: "Next Array",
-        timeframe: "2022",
-        role: "Full Stack Developer",
-        achievements: [<>Part-Time Full Stack Developer role</>],
-        images: [],
       },
       {
         company: "VelocityNode (Ghosty)",
@@ -281,8 +292,8 @@ const gallery = {
   description: `A photo collection by ${person.name}`,
   images: [
     {
-      src: "/images/projects/spectivis/spectivis.png",
-      alt: "Spectivis",
+      src: "/images/projects/soraxus.png",
+      alt: "Soraxus",
     },
     // ... more images
   ],
